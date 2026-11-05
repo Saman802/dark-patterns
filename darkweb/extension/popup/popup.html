@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"><title>Darkweb</title></head>
+<body>
+  <header><h1>Dark<span>web</span></h1><small>rule-based dark pattern detector</small></header>
+  <section id="gauge"><div id="score">–</div><div id="level">Not scanned yet</div></section>
+  <ol id="top"></ol>
+  <div id="msg"></div>
+  <div class="row">
+    <button id="scan">Scan this page</button>
+    <button id="clear" class="ghost">Clear</button>
+  </div>
+  <label class="toggle"><input type="checkbox" id="auto"> Auto-scan shopping sites</label>
+  <button id="dash" class="ghost wide">Open dashboard </button>
+  <script src="popup.js"></script>
+</body></html>

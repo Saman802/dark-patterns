@@ -1,0 +1,21 @@
+.darkweb-flagged-pattern {
+  outline: 3px solid #ff1a1a !important;
+  outline-offset: 2px !important;
+  background-color: rgba(255, 0, 0, 0.14) !important;
+  box-shadow: 0 0 0 2px rgba(255, 26, 26, 0.35), 0 0 12px rgba(255, 26, 26, 0.6) !important;
+  border-radius: 3px !important;
+  cursor: help !important;
+}
+#darkweb-tooltip {
+  position: fixed; z-index: 2147483647; max-width: 340px; pointer-events: none; display: none;
+  background: #1b0000; color: #fff; border: 2px solid #ff1a1a; border-radius: 8px; padding: 10px 12px;
+  font: 13px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.45);
+}
+#darkweb-tooltip b { color: #ff6b6b; display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+#darkweb-tooltip .dw-sub { color: #ffb3b3; font-size: 11px; margin-top: 6px; }
+#darkweb-badge {
+  position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; cursor: pointer; user-select: none;
+  background: #1b0000; color: #fff; border: 2px solid #ff1a1a; border-radius: 999px; padding: 8px 14px;
+  font: 600 13px system-ui, sans-serif; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+}
+#darkweb-badge .dw-score { color: #ff4d4d; font-size: 16px; margin-left: 6px; }

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartzilla – Nimbus Buds Pro | Checkout</title>
+<!--
+  DARKWEB DEMO STORE - a deliberately manipulative fake shop. Nothing here is real.
+  Expected detections (what to point at during the demo):
+    Urgency ........... yellow top bar, "Order within ..." line, exit popup
+    Countdown ......... three HH:MM:SS clocks that silently RESET at 00:00:00 (fake timers)
+    Scarcity .......... "Only 2 left in stock", "selling fast"
+    Social proof ...... "37 people are viewing", "412 bought in the last 24 hours", toast "Trending now"
+    Exclusivity ....... "Exclusive deal just for you", "Members only"
+    Hidden costs ...... tiny grey fee lines (convenience / packaging / platform) + "additional fees"
+    Pre-ticked opt-ins  insurance, membership, donation, newsletter (4 visible ticked boxes)
+    Hidden pre-tick ... off-screen checked box for a "premium protection plan"
+    Forced continuity . "7-day free trial" + tiny faded auto-renew text
+    Misdirection ...... big green "Yes, upgrade" vs tiny grey decline link
+    Confirmshaming .... "No thanks, I don't want to save money" / "I prefer to pay full price"
+    Hidden cancel ..... footer "Cancel subscription" in near-invisible text
+    Nagging ........... "Wait! Before you go" popup (appears after ~8 s or when mouse leaves the top edge)
+-->
+<style>
+  :root{
+    --ink:#221e5b; --ink2:#38338a; --paper:#ffffff; --mist:#f1f0ff; --line:#dcdaf5;
+    --sun:#ffe14d; --teal:#0ca678; --muted:#6b6a85;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+  h1,h2,h3,h4{margin:0;line-height:1.15;letter-spacing:-.01em}
+  a{color:var(--ink2)}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--ink2);outline-offset:2px}
+
+  .bar{background:var(--sun);color:#2a2400;text-align:center;padding:9px 12px;font-weight:700;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .clock{font-variant-numeric:tabular-nums;background:var(--ink);color:#fff;padding:1px 9px;border-radius:6px;font-weight:800}
+
+  header.top{display:flex;align-items:center;gap:28px;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .logo{font-size:26px;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+  .logo i{font-style:normal;background:var(--ink);color:var(--sun);padding:0 7px;border-radius:7px;margin-right:4px}
+  header.top nav{display:flex;gap:22px;flex:1;color:var(--muted)}
+  header.top nav a{text-decoration:none;color:inherit}
+  .cartbtn{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:7px 16px;font-weight:700}
+
+  main{max-width:1120px;margin:0 auto;padding:30px 5vw 60px}
+  .product{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .gallery{aspect-ratio:1/1;border-radius:22px;background:linear-gradient(145deg,#2d2a78,#0ca678);position:relative;overflow:hidden}
+  .bud{position:absolute;width:23%;height:38%;background:#fff;border-radius:48% 48% 40% 40%;box-shadow:inset -8px -10px 0 rgba(34,30,91,.12)}
+  .bud::after{content:"";position:absolute;left:62%;top:58%;width:30%;height:70%;background:#fff;border-radius:0 0 40px 40px}
+  .b1{left:22%;top:20%;transform:rotate(-14deg)}
+  .b2{left:55%;top:26%;transform:rotate(12deg) scaleX(-1)}
+  .case{position:absolute;left:30%;bottom:9%;width:40%;height:24%;background:#eceaff;border-radius:34px;box-shadow:inset 0 -10px 0 rgba(34,30,91,.14)}
+  .case::before{content:"";position:absolute;left:8%;right:8%;top:42%;height:3px;background:rgba(34,30,91,.25)}
+
+  .crumb{margin:0 0 8px;color:var(--muted);font-size:14px}
+  .product h1{font-size:clamp(28px,4vw,42px);font-weight:900}
+  .rating{margin:10px 0 18px;color:var(--muted)}
+  .rating b{color:var(--ink)}
+  .price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .now{font-size:40px;font-weight:900}
+  .was{color:var(--muted);font-size:20px}
+  .off{background:var(--mist);color:var(--ink2);font-weight:800;padding:2px 10px;border-radius:999px}
+  .deal{margin:18px 0;padding:12px 14px;border:2px dashed var(--ink2);border-radius:12px;background:var(--mist)}
+  .deal b{color:var(--ink2)}
+  .stock{margin:14px 0 6px;font-weight:700}
+  .meter{height:8px;background:var(--mist);border-radius:99px;overflow:hidden}
+  .meter span{display:block;height:100%;width:9%;background:var(--ink2)}
+  .proof{margin:8px 0;color:var(--muted)}
+  .ship{margin:14px 0}
+  .add-to-cart{width:100%;margin-top:6px;border:0;background:var(--ink);color:#fff;font-weight:800;font-size:18px;padding:15px;border-radius:12px}
+
+  h2.sec{font-size:30px;font-weight:900;margin:56px 0 18px}
+  .checkout{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+  .box{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}
+  .box h3{font-size:19px;margin-bottom:12px}
+  .line{display:flex;justify-content:space-between;gap:16px;padding:6px 0}
+  .total{border-top:2px solid var(--ink);margin-top:8px;padding-top:10px;font-weight:800;font-size:18px}
+  fieldset.addons{border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:0 0 18px}
+  fieldset.addons legend{padding:0 8px;font-weight:800}
+  .opt{position:relative;padding:9px 0;border-bottom:1px solid var(--mist)}
+  .opt:last-child{border-bottom:0}
+  .opt label{display:flex;gap:10px;align-items:center;cursor:pointer}
+  .opt input{width:18px;height:18px;accent-color:var(--ink2)}
+  .opt.note span{color:var(--muted);font-size:14px}
+  .trial{background:var(--mist);border-radius:16px;padding:18px;margin-bottom:18px}
+  .trial h4{font-size:19px;margin-bottom:6px}
+  .trial p{margin:6px 0}
+  .trial button{margin-top:6px;border:2px solid var(--ink2);background:#fff;color:var(--ink2);font-weight:800;border-radius:10px;padding:9px 16px}
+  .upsell{border:2px solid var(--teal);border-radius:16px;padding:18px;margin-bottom:18px}
+  .choices{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:10px}
+  .yes{background:var(--teal);color:#fff;border:0;border-radius:12px;font-weight:800;font-size:18px;padding:14px 26px}
+  .place{width:100%;border:0;background:var(--ink);color:#fff;font-weight:900;font-size:20px;padding:17px;border-radius:14px}
+
+  footer{background:#f4f4f8;padding:30px 5vw 40px;margin-top:40px}
+  footer .row{display:flex;gap:22px;flex-wrap:wrap}
+  footer a{color:var(--muted);text-decoration:none}
+
+  .toast{position:fixed;left:16px;bottom:16px;z-index:50;background:var(--ink);color:#fff;border-radius:14px;padding:10px 14px;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+  .toast b{display:block;color:var(--sun)}
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(20,18,60,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+  .modal .card{background:#fff;border-radius:20px;max-width:460px;padding:28px;text-align:center}
+  .modal h3{font-size:30px;font-weight:900;margin-bottom:8px}
+  .modal .yes{margin:16px 0 10px}
+
+  @media (max-width:860px){.product,.checkout{grid-template-columns:1fr}header.top nav{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span>Flash sale: offer ends in</span>
+  <span class="clock" data-start="8099">02:14:59</span>
+  <span>Today only</span>
+</div>
+
+<header class="top">
+  <div class="logo"><i>K</i>artzilla</div>
+  <nav><a href="#">Mobiles</a><a href="#">Audio</a><a href="#">Laptops</a><a href="#">Home</a><a href="#">Fashion</a></nav>
+  <button class="cartbtn" type="button">Cart (1)</button>
+</header>
+
+<main>
+  <section class="product">
+    <div class="gallery" aria-label="Product picture"><div class="bud b1"></div><div class="bud b2"></div><div class="case"></div></div>
+
+    <div class="info">
+      <p class="crumb">Audio / Wireless earbuds</p>
+      <h1>Nimbus Buds Pro wireless earbuds</h1>
+      <p class="rating"><b>4.3</b> out of 5, from 2,184 ratings</p>
+
+      <div class="price">
+        <span class="now">₹2,499</span>
+        <s class="was" style="text-decoration:line-through">₹4,999</s>
+        <span class="off">50% off</span>
+      </div>
+
+      <div class="deal"><b>Exclusive deal</b> <span>just for you. Members only price, unlocked at checkout.</span></div>
+
+      <p class="stock"><b>Only 2 left in stock</b> – selling fast</p>
+      <div class="meter" aria-hidden="true"><span></span></div>
+
+      <p class="proof">37 people are viewing this right now</p>
+      <p class="proof">412 bought in the last 24 hours</p>
+
+      <p class="ship">Order within <span class="clock" data-start="3599">00:59:59</span> for dispatch today</p>
+
+      <button id="add-to-cart" class="add-to-cart" type="button" onclick="document.getElementById('checkout').scrollIntoView()">Add to cart</button>
+    </div>
+  </section>
+
+  <h2 class="sec" id="checkout">Checkout</h2>
+
+  <form class="checkout" action="#cart" onsubmit="return false">
+    <div class="left">
+
+      <fieldset class="addons">
+        <legend>Protect your order</legend>
+        <div class="opt"><label><input type="checkbox" checked> <span>Add NimbusCare product insurance (₹199)</span></label></div>
+        <div class="opt"><label><input type="checkbox" checked> <span>Join Nimbus Club membership (₹99 today)</span></label></div>
+        <div class="opt"><label><input type="checkbox" checked> <span>Donate ₹10 to Green Earth Trust</span></label></div>
+        <div class="opt"><label><input type="checkbox" checked> <span>Send me the newsletter and partner offers</span></label></div>
+        <div class="opt note"><span>Includes NimbusCare premium protection plan (₹349)</span><input type="checkbox" checked name="care" style="position:absolute;left:-9999px"></div>
+      </fieldset>
+
+      <div class="trial">
+        <h4>Start your 7-day free trial of Nimbus Club</h4>
+        <p>Faster delivery on every order and early access to new launches.</p>
+        <p style="font-size:10px;color:#bdbdbd">Auto-renews at ₹499/month after the trial. Cancel anytime.</p>
+        <button type="button">Start my free trial</button>
+      </div>
+
+      <div class="upsell">
+        <p><b>Want it tomorrow?</b> Express delivery is just ₹99 more.</p>
+        <div class="choices">
+          <button type="button" class="yes">Yes, upgrade my order</button>
+          <a href="#" style="font-size:10px;color:#c9c9c9">No thanks, I don't want to save money</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="box">
+      <h3>Order summary</h3>
+      <div class="line"><span>Nimbus Buds Pro × 1</span><span>₹2,499</span></div>
+      <div class="line"><span>Delivery</span><span>₹0</span></div>
+      <div style="font-size:10px;color:#b3b3b3">
+        <div class="line"><span>Convenience fee</span><span>₹49</span></div>
+        <div class="line"><span>Packaging fee</span><span>₹29</span></div>
+        <div class="line"><span>Platform fee</span><span>₹15</span></div>
+        <div>Additional fees may apply at payment.</div>
+      </div>
+      <div class="line total"><span>Total</span><span>₹2,499</span></div>
+      <button class="place" type="button">Pay ₹2,592</button>
+    </aside>
+  </form>
+</main>
+
+<footer style="background:#f4f4f8">
+  <div class="row">
+    <a href="#" style="font-size:14px;color:#6b6a85">About Kartzilla</a>
+    <a href="#" style="font-size:14px;color:#6b6a85">Returns</a>
+    <a href="#" style="font-size:14px;color:#6b6a85">Contact</a>
+    <a href="#" style="font-size:10px;color:#d4d4dc">Cancel subscription</a>
+    <a href="#" style="font-size:10px;color:#d4d4dc">Unsubscribe from emails</a>
+  </div>
+</footer>
+
+<div class="toast"><b>Trending now</b><span>412 bought in the last 24 hours</span></div>
+
+<script>
+  // Fake timers: every clock counts down, then silently starts over (a classic manipulation).
+  function fmt(s){const p=n=>String(n).padStart(2,'0');return p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60)}
+  const left = new WeakMap();
+  setInterval(() => {
+    document.querySelectorAll('.clock').forEach(el => {
+      const start = Number(el.dataset.start) || 3599;
+      let s = left.has(el) ? left.get(el) : start;
+      s = s <= 0 ? start : s - 1;
+      left.set(el, s);
+      el.textContent = fmt(s);
+    });
+  }, 1000);
+
+  // Exit-intent nag: after ~8 seconds, or when the pointer leaves through the top edge.
+  let shown = false;
+  function showExit(){
+    if (shown) return; shown = true;
+    const m = document.createElement('div');
+    m.className = 'modal';
+    m.innerHTML =
+      '<div class="card">' +
+        '<h3>Wait! Before you go</h3>' +
+        '<p>Exclusive offer just for you: take an extra 5% off. Offer expires in <span class="clock" data-start="599">00:09:59</span></p>' +
+        '<button type="button" class="yes">Yes, give me 5% off</button><br>' +
+        '<a href="#" style="font-size:13px;color:#777">No thanks, I prefer to pay full price</a>' +
+      '</div>';
+    m.querySelectorAll('a,button').forEach(b => b.addEventListener('click', e => { e.preventDefault(); m.remove(); }));
+    document.body.appendChild(m);
+  }
+  setTimeout(showExit, 8000);
+  document.addEventListener('mouseout', e => { if (!e.relatedTarget && e.clientY < 10) showExit(); });
+</script>
+</body>
+</html>

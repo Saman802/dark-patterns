@@ -1,0 +1,7 @@
+body{width:340px;margin:0;font:13px/1.4 system-ui,Segoe UI,sans-serif;background:#120000;color:#fff;padding:14px}
+h1{margin:0;font-size:20px}h1 span{color:#ff1a1a}small{color:#ff9a9a}
+#gauge{text-align:center;margin:12px 0}#score{font-size:44px;font-weight:800;color:#ff3b3b}#level{color:#ffb3b3}
+ol{padding-left:18px;margin:0 0 8px}li{margin:6px 0}li b{color:#ff6b6b}li small{display:block;color:#caa}
+.row{display:flex;gap:8px}button{flex:1;padding:9px;border:0;border-radius:6px;background:#ff1a1a;color:#fff;font-weight:700;cursor:pointer}
+button.ghost{background:transparent;border:1px solid #ff1a1a;color:#ff8a8a}button.wide{width:100%;margin-top:8px}
+.toggle{display:block;margin-top:10px;color:#ddd}#msg{color:#ffd166;min-height:16px;margin:4px 0}

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Darkweb — Rule-Based Dark Pattern Detector",
+  "version": "1.0.0",
+  "description": "Detects dark patterns on shopping pages with hand-written DSA in C++/WebAssembly. No machine learning.",
+  "permissions": ["storage", "activeTab"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup/popup.html", "default_title": "Darkweb" },
+  "options_ui": { "page": "dashboard/dashboard.html", "open_in_tab": true },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content/content.js"],
+    "css": ["content/content.css"],
+    "run_at": "document_idle"
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
